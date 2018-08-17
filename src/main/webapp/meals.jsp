@@ -23,11 +23,12 @@
 <body>
 <h3><a href="index.html">Home</a></h3>
 <h2>Meals</h2>
+<a href="meals?action=create">Add meal</a>
 <hr/>
 <table border="1" cellpadding="8" cellspacing="0">
     <thead>
     <tr>
-        <th>Дата</th>
+        <th>Дата !!!</th>
         <th>Описание</th>
         <th>Калории</th>
     </tr>
@@ -39,8 +40,10 @@
             <td><%= meal.getDateTime().toString().replace("T", " ") %></td>
             <td>${meal.description}</td>
             <td>${meal.calories}</td>
+            <td><a href="meals?action=update&id=${meal.id}">Update</a></td>
+            <td><a href="meals?action=delete&id=${meal.id}">Delete</a></td>
+            <td>${meal.id}</td>
         </tr>
-
     </c:forEach>
 </table>
 </body>
