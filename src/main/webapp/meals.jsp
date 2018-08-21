@@ -7,6 +7,22 @@
 <head>
     <title>Meal list</title>
     <style>
+        dl {
+            background: none repeat scroll 0 0 #FAFAFA;
+            margin: 8px 0;
+            padding: 0;
+        }
+        dt {
+            display: inline-block;
+            width: 170px;
+        }
+        dd {
+            display: inline-block;
+            margin-left: 8px;
+            vertical-align: top;
+        }
+
+
         .normal {
             color: green;
         }
@@ -20,6 +36,26 @@
 <section>
     <h3><a href="index.html">Home</a></h3>
     <h2>Meals</h2>
+    <form method="post" action="meals?action=filter">
+        <dl>
+            <dt>from date</dt>
+            <dd><input type="date" name="startDate"></dd>
+        </dl>
+        <dl>
+            <dt>to date</dt>
+            <dd><input type="date" name="endDate"></dd>
+        </dl>
+        <dl>
+            <dt>from time</dt>
+            <dd><input type="time" name="startTime"></dd>
+        </dl>
+        <dl>
+            <dt>to time</dt>
+            <dd><input type="time" name="endTime"></dd>
+        </dl>
+        <button type="submit">filter</button>
+    </form>
+
     <a href="meals?action=create">Add Meal</a>
     <hr/>
     <table border="1" cellpadding="8" cellspacing="0">
