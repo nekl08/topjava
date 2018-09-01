@@ -2,6 +2,7 @@ package ru.javawebinar.topjava.web;
 
 import org.junit.*;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.javawebinar.topjava.UserTestData;
 import ru.javawebinar.topjava.model.User;
@@ -20,7 +21,8 @@ public class InMemoryAdminRestControllerTest {
 
     @BeforeClass
     public static void beforeClass() {
-        appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml");
+//        appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml");
+        appCtx = new AnnotationConfigApplicationContext("ru.javawebinar.**.service", "ru.javawebinar.**.web", "ru.javawebinar.topjava.repository.mock");
         System.out.println("\n" + Arrays.toString(appCtx.getBeanDefinitionNames()) + "\n");
         controller = appCtx.getBean(AdminRestController.class);
     }

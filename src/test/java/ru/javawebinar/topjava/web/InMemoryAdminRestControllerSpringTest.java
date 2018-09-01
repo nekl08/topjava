@@ -5,6 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.javawebinar.topjava.UserTestData;
@@ -17,9 +20,15 @@ import java.util.Collection;
 
 import static ru.javawebinar.topjava.UserTestData.ADMIN;
 
-@ContextConfiguration("classpath:spring/spring-app.xml")
+//@ContextConfiguration(value = "classpath:spring/spring-app.xml", classes = {InMemoryUserRepositoryImpl.class} )
+@ContextConfiguration
 @RunWith(SpringRunner.class)
 public class InMemoryAdminRestControllerSpringTest {
+
+    @Configuration
+    @ComponentScan({"ru.javawebinar.**.service", "ru.javawebinar.**.web", "ru.javawebinar.topjava.repository.mock"})
+    public static class TestConfig {
+    }
 
     @Autowired
     private AdminRestController controller;
