@@ -20,15 +20,10 @@ import java.util.Collection;
 
 import static ru.javawebinar.topjava.UserTestData.ADMIN;
 
-//@ContextConfiguration(value = "classpath:spring/spring-app.xml", classes = {InMemoryUserRepositoryImpl.class} )
-@ContextConfiguration
+@ContextConfiguration(locations = {"file:src/test/java/ru/javawebinar/topjava/web/testConfig.xml"})
 @RunWith(SpringRunner.class)
 public class InMemoryAdminRestControllerSpringTest {
 
-    @Configuration
-    @ComponentScan({"ru.javawebinar.**.service", "ru.javawebinar.**.web", "ru.javawebinar.topjava.repository.mock"})
-    public static class TestConfig {
-    }
 
     @Autowired
     private AdminRestController controller;
